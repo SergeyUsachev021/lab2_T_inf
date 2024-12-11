@@ -13,7 +13,7 @@ void task1(std::vector<Symbol>& fanoCode)
 
     double entropyNum = entropy(fanoCode);
     double maxEntropy = log2f(fanoCode.size());
-    std::cout << "entropy = " << entropyNum << "\n";
+    std::cout << "энтронпия = " << entropyNum << "\n";
 
     double averageLengthCodeCombination = averageLengthCombination(fanoCode);
     std::cout << "кодовая комбинация средней длины = " << averageLengthCodeCombination << "\n";
