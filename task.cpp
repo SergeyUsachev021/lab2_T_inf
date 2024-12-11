@@ -16,10 +16,10 @@ void task1(std::vector<Symbol>& fanoCode)
     std::cout << "entropy = " << entropyNum << "\n";
 
     double averageLengthCodeCombination = averageLengthCombination(fanoCode);
-    std::cout << "average lenght code combination = " << averageLengthCodeCombination << "\n";
+    std::cout << "кодовая комбинация средней длины = " << averageLengthCodeCombination << "\n";
 
     double redundancy = 1 - (entropyNum/maxEntropy);
-    std::cout << "redundancy = " << redundancy << std::endl;
+    std::cout << "избыточность = " << redundancy << std::endl;
 
 }
 
@@ -39,7 +39,7 @@ void task2(std::vector<Symbol>& fanoCode, std::vector<std::pair<char, double>>& 
     }
 
     double averageLengthCodeCombination = averageLengthCombination(fanoCode);
-    std::cout << "average lenght Fano code combination = " << averageLengthCodeCombination << "\n";
+    std::cout << "кодовая комбинация Fano средней длины = " << averageLengthCodeCombination << "\n";
 
 
 
@@ -48,7 +48,7 @@ void task2(std::vector<Symbol>& fanoCode, std::vector<std::pair<char, double>>& 
     std::vector<std::string> huffmanCodes(256); // Вектор для хранения кодов Хаффмана
     generateCodes(root, "", huffmanCodes); // Генерация кодов
 
-    std::cout << "Huffman code:\n";
+    std::cout << "Код Хаффмана:\n";
     i = 0;
     for (const auto& pair : symbolProbabilities) {
         std::cout << symbols[i] << ": " << huffmanCodes[static_cast<unsigned char>(pair.first)] << "\n";
@@ -56,7 +56,7 @@ void task2(std::vector<Symbol>& fanoCode, std::vector<std::pair<char, double>>& 
     }
 
     averageLengthCodeCombination = averageLengthCombination(symbolProbabilities, huffmanCodes);
-    std::cout << "average lenght Huffman code combination = " << averageLengthCodeCombination << "\n";
+    std::cout << "кодовая комбинация Хаффмана средней длины = " << averageLengthCodeCombination << "\n";
 
     deleteTree(root); // Освобождаем память
 }
@@ -95,11 +95,11 @@ void task3(std::string& line)
             entropy += probability * log2(probability);
         }
         entropy *= -1;
-        std::cout << "entropy blok length " << i+1 << " = " << entropy << std::endl;
+        std::cout << "длина энтропийного блока " << i+1 << " = " << entropy << std::endl;
 
         double maxBits = log2(blocks[i].size());
         double redundancy = 1- (entropy/maxBits);
 
-        std::cout << "redundancy blok length " << i+1 << " = " << redundancy << "\n" << std::endl;
+        std::cout << "длина блока резервирования " << i+1 << " = " << redundancy << "\n" << std::endl;
     }
 }
